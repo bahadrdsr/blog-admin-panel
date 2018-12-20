@@ -1,0 +1,44 @@
+<div class="comment-create">
+  <h1 class="comment-create__heading mat-h1">New Comment</h1>
+  <mat-divider></mat-divider>
+  <div class="comment-create__tools">
+    <button
+      mat-button
+      [routerLink]="['/comments']"
+      routerLinkActive="active"
+      color="primary"
+      class="comment__btn"
+    >
+      Back to Comments <mat-icon class="mat-18">arrow_back</mat-icon>
+    </button>
+  </div>
+  <div class="form-container">
+    <mat-form-field>
+      <mat-select placeholder="Select a Post" [(ngModel)]="post">
+        <mat-option *ngFor="let post of posts" [value]="post">
+          {{ post.title }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        placeholder="Text goes here..."
+        #commentBody="ngModel"
+        name="body"
+        [(ngModel)]="body"
+        minlength="2"
+        rows="6"
+        required
+      ></textarea>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      (click)="newComment()"
+      color="primary"
+      class="submit-btn"
+    >
+      Create
+    </button>
+  </div>
+</div>

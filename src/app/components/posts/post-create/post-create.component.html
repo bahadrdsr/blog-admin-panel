@@ -1,0 +1,90 @@
+<div class="post-create">
+  <h1 class="post-create__heading mat-h1">New Post</h1>
+  <mat-divider></mat-divider>
+  <div class="post-create__tools">
+    <button
+      mat-button
+      [routerLink]="['/posts']"
+      routerLinkActive="active"
+      color="primary"
+      class="posts__btn"
+    >
+      Back to Posts <mat-icon class="mat-18">arrow_back</mat-icon>
+    </button>
+  </div>
+  <div class="form-container">
+    <form
+      class="post-create__form"
+      #postForm="ngForm"
+      autocomplete="off"
+      novalidate
+    >
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Title"
+          #postTitle="ngModel"
+          name="title"
+          [(ngModel)]="title"
+          minlength="2"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <textarea
+          matInput
+          name="body"
+          [(ngModel)]="body"
+          placeholder="Body"
+          #postBody="ngModel"
+          rows="20"
+          required
+        ></textarea>
+      </mat-form-field>
+      <mat-form-field class="tag-list">
+          <mat-chip-list #tagList>
+            <mat-chip
+              *ngFor="let tag of tags"
+              [selectable]="selectable"
+              [removable]="removable"
+              (removed)="removeTag(tag)">
+              {{tag.name}}
+              <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+            <input
+              placeholder="Add tag..."
+              #tagInput
+              [matAutocomplete]="auto"
+              [matChipInputFor]="tagList"
+              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+              [matChipInputAddOnBlur]="addOnBlur"
+              (matChipInputTokenEnd)="addTag($event)">
+          </mat-chip-list>
+          <mat-autocomplete #auto="matAutocomplete" (optionSelected)="tagSelected($event)">
+            <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+              {{tag.name}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      <div class="action-container">
+        <button
+          mat-raised-button
+          (click)="onSubmit(postForm)"
+          color="primary"
+          class="submit-btn"
+          [disabled]="!postForm.valid"
+        >
+          {{isEdit ? 'Update' : 'Create'}}
+        </button>
+        <button
+        mat-raised-button
+        (click)="onCancel(postForm)"
+        color="primary"
+        class="submit-btn"
+      >
+        Cancel
+      </button>
+      </div>
+    </form>
+  </div>
+</div>

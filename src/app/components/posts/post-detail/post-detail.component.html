@@ -1,0 +1,43 @@
+<mat-card class="post-detail" *ngIf="post">
+  <mat-card-header class="header">
+      <mat-card-title>{{ post?.title }}</mat-card-title>
+     <!-- <h3 *ngIf="!titleEditing" mat-subheader>{{ post.title }}</h3> -->
+    <!-- <input
+      *ngIf="titleEditing"
+      matInput
+      placeholder="Title"
+      #postTitle="ngModel"
+      name="title"
+      [(ngModel)]="post.title"
+      minlength="2"
+      required
+    />
+    <button
+      mat-icon-button
+      (click)="toggleTitleEdit()"
+      color="warn"
+      *ngIf="!titleEditing"
+    >
+      <mat-icon class="mat-18">edit</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      (click)="toggleTitleEdit()"
+      color="warn"
+      *ngIf="titleEditing"
+    >
+      <mat-icon class="mat-18">check</mat-icon>
+    </button> -->
+  </mat-card-header>
+  <mat-card-content> {{ post?.body }} </mat-card-content>
+  <mat-card-footer *ngIf="post?.comments">
+    <mat-list>
+      <h3 mat-subheader>Comments</h3>
+      <mat-list-item *ngFor="let comment of post.comments">
+        <mat-icon mat-list-icon>comment</mat-icon>
+        <h4 mat-line>{{ comment.author }}</h4>
+        <p mat-line>{{ comment.body }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-footer>
+</mat-card>

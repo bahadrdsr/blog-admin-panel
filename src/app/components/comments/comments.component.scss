@@ -1,0 +1,25 @@
+.comments{
+    &__tools{
+        margin: 2rem 0;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .comment{
+        margin: 2rem 0;
+        &__content{
+            padding: .5rem 3rem;
+        }
+        p{
+            margin: .5rem 0;
+        }
+        &__body{
+            font-size: 1.6rem;
+        }
+        &__createdDate{
+            display: inline-block;
+        }
+        p > span{
+            font-weight: 600;
+        }
+    }
+}

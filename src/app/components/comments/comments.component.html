@@ -1,0 +1,32 @@
+<div class="comments">
+  <h1 class="comments__heading mat-h1">Comments</h1>
+  <mat-divider></mat-divider>
+  <div class="comments__tools">
+      <button  mat-raised-button [routerLink]="['/comments/new']" routerLinkActive="active" color="warn" class="comments__btn">
+         NEW
+      </button>
+     </div>
+  <mat-card class="comment" *ngFor="let comment of comments">
+    <mat-card-header>
+      <mat-card-title>{{comment.postTitle ? comment.postTitle : comment.postId}}</mat-card-title>
+      <mat-card-subtitle>{{ comment.author }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="comment__content">
+      <p class="comment__body">{{ comment.body }}</p>
+      <mat-divider class="divider"></mat-divider>
+      <p class="comment__createdDate">
+        <span>Created Date :</span> {{ comment.createdDate | date }}
+      </p>
+      <p class="comment__isPublished">
+        <span>Is Published :</span> {{ comment.isPublished ? "YES" : "NO" }}
+      </p>
+      <p class="comment__publishedDate" *ngIf="comment.isPublished">
+        <span>Published Date :</span> {{ comment.publishedDate | date }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button [disabled]="comment.isPublished" color="primary" (click)="publish(comment)">PUBLISH</button>
+      <button mat-button [disabled]="!comment.isPublished"color="primary" (click)="deactivate(comment)">DEACTIVATE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

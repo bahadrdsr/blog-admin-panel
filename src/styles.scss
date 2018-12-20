@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+$error-color: #B00020;
+$success-color: #018786;
+.success-snackbar {
+    background-color: $success-color;
+}
+
+.error-snackbar {
+    background-color: $error-color;
+}
+.divider{
+    margin: 1.5rem 0;
+}

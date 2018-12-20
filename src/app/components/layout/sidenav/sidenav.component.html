@@ -1,0 +1,15 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened="true" class="sidenav">
+    <mat-nav-list class="sidenav__list">
+      <mat-list-item> <a matLine [routerLink]="['/']" routerLinkActive="active">Home</a> </mat-list-item>
+      <mat-list-item> <a matLine [routerLink]="['/posts']" routerLinkActive="active" >Posts</a> </mat-list-item>
+      <mat-list-item> <a matLine [routerLink]="['/comments']" routerLinkActive="active" >Comments</a> </mat-list-item>
+      <mat-list-item> <a matLine [routerLink]="['/settings']" routerLinkActive="active" >Settings</a> </mat-list-item>
+      <mat-list-item> <a matLine [routerLink]="['/info']" routerLinkActive="active" >Info</a> </mat-list-item>
+      <mat-list-item> <a matLine [routerLink]="['/tags']" routerLinkActive="active" >Tags</a> </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="wrapper"><router-outlet> </router-outlet></div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

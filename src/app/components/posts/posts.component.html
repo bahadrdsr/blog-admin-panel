@@ -1,0 +1,45 @@
+<div class="posts">
+  <h1 class="posts__heading mat-h1">Posts</h1>
+  <mat-divider></mat-divider>
+  <div class="posts__tools">
+    <button
+      mat-raised-button
+      [routerLink]="['/posts/compose']"
+      routerLinkActive="active"
+      color="warn"
+      class="posts__btn"
+    >
+      Compose
+    </button>
+  </div>
+  <mat-card *ngFor="let post of posts" class="post">
+    <mat-card-header>
+      <mat-card-title class="post__title">{{ post.title }}</mat-card-title>
+      <a
+        mat-icon-button
+        (click)="onDelete(post)"
+        color="warn"
+        class="post__remove"
+      >
+        <mat-icon class="mat-18">clear</mat-icon>
+      </a>
+    </mat-card-header>
+    <mat-card-content class="post__content">
+      <div class="post__body">{{ post.body }}</div>
+      <div class="post__tags">
+        <mat-chip-list>
+          <mat-chip *ngFor="let tag of post.tags">{{ tag }}</mat-chip>
+        </mat-chip-list>
+      </div>
+    </mat-card-content>
+    <mat-card-actions align="end" class="post__actions">
+      <button mat-button color="warn" [routerLink]="['/posts/detail', post.id]">
+        Detail
+      </button>
+      <button mat-button color="warn" [routerLink]="['/posts/edit', post.id]">
+        Edit
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <mat-paginator></mat-paginator>
+</div>

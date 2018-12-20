@@ -1,0 +1,14 @@
+.post-detail {
+    .header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        mat-card-title {
+            font-size: 2.2rem;
+            font-weight: 500;
+        }
+    }
+    mat-card-content {
+        padding: 2rem 3rem;
+    }
+}

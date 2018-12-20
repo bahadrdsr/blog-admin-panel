@@ -1,0 +1,44 @@
+.post-create {
+    .form-container {
+        width: 100%;
+    }
+    &__form{
+        display: flex;
+        flex-direction: column;
+
+        textarea{
+            height: 100%;
+            font-size: 1.4rem;
+            &::placeholder{
+                font-size: 1.6rem;
+            }
+        }
+        input{
+            font-size: 1.4rem;
+            &::placeholder{
+                font-size: 1.6rem;
+            }
+        }
+    }
+    &__heading{
+        margin-left: 2rem;
+    }
+    &__tools{
+        margin: 1rem 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .submit-btn{
+        width:11rem;
+        font-size: 1.6rem;
+    }
+    .action-container{
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem 2rem;
+        button{
+            margin:0 .5rem;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>You are deleting post, please confirm.</h1>
+<div mat-dialog-content class="content">
+  <p>Title : {{ data.title }}</p>
+  <p>Created by : {{ data.createdBy }}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button (click)="onConfirm()" color="warn">Confirm</button>
+</div>
