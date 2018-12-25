@@ -9,6 +9,9 @@ import {AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 
+import { LMarkdownEditorModule } from 'ngx-markdown-editor';
+import { MarkdownModule } from 'ngx-markdown';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './components/layout/sidenav/sidenav.component';
@@ -56,6 +59,8 @@ import { CommentCreateComponent } from './components/comments/comment-create/com
     AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
+    LMarkdownEditorModule,
+    MarkdownModule.forRoot(),
   ],
   entryComponents: [PostDeleteComponent],
   providers: [PostsService],

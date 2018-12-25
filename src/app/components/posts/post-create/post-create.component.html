@@ -30,8 +30,8 @@
           required
         />
       </mat-form-field>
-      <mat-form-field>
-        <textarea
+      <div>
+        <!-- <textarea
           matInput
           name="body"
           [(ngModel)]="body"
@@ -39,8 +39,10 @@
           #postBody="ngModel"
           rows="20"
           required
-        ></textarea>
-      </mat-form-field>
+        ></textarea> -->
+        <md-editor name="body" [(ngModel)]="body"
+         [height]="'50rem'" [mode]="editor" required></md-editor>
+      </div>
       <mat-form-field class="tag-list">
           <mat-chip-list #tagList>
             <mat-chip
